@@ -1,0 +1,243 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x062ed76b, pid=24433, tid=3084331920
+#
+# Java VM: Java HotSpot(TM) Server VM (1.6.0_03-b05 mixed mode)
+# Problematic frame:
+# V  [libjvm.so+0x2ed76b]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x08058800):  JavaThread "main" [_thread_in_vm, id=24434]
+
+siginfo:si_signo=11, si_errno=0, si_code=1, si_addr=0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x08058800, ECX=0x00000100, EDX=0x00000001
+ESP=0xb7d71f44, EBP=0xb7d71f98, ESI=0x00000000, EDI=0x065c8a28
+EIP=0x062ed76b, CR2=0x00000000, EFLAGS=0x00210296
+
+Top of Stack: (sp=0xb7d71f44)
+0xb7d71f44:   08055ff8 909772f7 00000001 08058800
+0xb7d71f54:   00000000 000000b6 b7d71f6c 08058800
+0xb7d71f64:   913818e0 08058800 b7d71fbc 08058800
+0xb7d71f74:   08058fa4 b7d71f8f 08058800 00000000
+0xb7d71f84:   08058fb0 08058fac 913818e0 913818dc
+0xb7d71f94:   08058800 b7d71fc8 9097731f 080588ec
+0xb7d71fa4:   00000000 00000000 b7d72050 08058fa4
+0xb7d71fb4:   913818e0 913818dc b7d72010 b4caaa79 
+
+Instructions: (pc=0x062ed76b)
+0x062ed75b:   83 4c 01 00 00 74 03 c6 06 00 8b 45 0c 83 ec 0c
+0x062ed76b:   8b 18 8b 43 04 8d 70 08 8b 40 08 56 ff 90 84 00 
+
+Stack: [0xb7d22000,0xb7d73000),  sp=0xb7d71f44,  free space=319k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x2ed76b]
+C  [libsqlitewrapper.so+0x8931f]  Java_sqlitewrapper_Statement_bindBlobInternal+0x28
+j  sqlitewrapper.Statement.bindBlobInternal(I[BI)I+0
+j  sqlitewrapper.Statement.bindBlob(I[B)V+4
+j  sqlitewrapper.test.BlobTest.main([Ljava/lang/String;)V+67
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x2c5ecd]
+V  [libjvm.so+0x4523b8]
+V  [libjvm.so+0x2c5d60]
+V  [libjvm.so+0x2ef186]
+V  [libjvm.so+0x2e082b]
+C  [java+0x1b98]  JavaMain+0x2c8
+C  [libpthread.so.0+0x6175]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sqlitewrapper.Statement.bindBlobInternal(I[BI)I+0
+j  sqlitewrapper.Statement.bindBlob(I[B)V+4
+j  sqlitewrapper.test.BlobTest.main([Ljava/lang/String;)V+67
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x08135400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=24447]
+  0x08133800 JavaThread "CompilerThread1" daemon [_thread_blocked, id=24446]
+  0x08132400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=24445]
+  0x08131000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=24444]
+  0x08120c00 JavaThread "Finalizer" daemon [_thread_blocked, id=24443]
+  0x0811d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=24442]
+=>0x08058800 JavaThread "main" [_thread_in_vm, id=24434]
+
+Other Threads:
+  0x0811a400 VMThread [id=24441]
+  0x08136c00 WatcherThread [id=24448]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 3584K, used 278K [0xb13b0000, 0xb17b0000, 0xb4be0000)
+  eden space 3072K, 9% used [0xb13b0000,0xb13f5828,0xb16b0000)
+  from space 512K, 0% used [0xb1730000,0xb1730000,0xb17b0000)
+  to   space 512K, 0% used [0xb16b0000,0xb16b0000,0xb1730000)
+ PSOldGen        total 28736K, used 0K [0x951e0000, 0x96df0000, 0xb13b0000)
+  object space 28736K, 0% used [0x951e0000,0x951e0000,0x96df0000)
+ PSPermGen       total 16384K, used 1671K [0x911e0000, 0x921e0000, 0x951e0000)
+  object space 16384K, 10% used [0x911e0000,0x91381da0,0x921e0000)
+
+Dynamic libraries:
+06000000-065a0000 r-xp 00000000 08:04 1786625    /usr/java/jdk1.6.0_03/jre/lib/i386/server/libjvm.so
+065a0000-065db000 rwxp 005a0000 08:04 1786625    /usr/java/jdk1.6.0_03/jre/lib/i386/server/libjvm.so
+065db000-069fc000 rwxp 065db000 00:00 0 
+08048000-08052000 r-xp 00000000 08:04 1590723    /usr/java/jdk1.6.0_03/bin/java
+08052000-08053000 rwxp 00009000 08:04 1590723    /usr/java/jdk1.6.0_03/bin/java
+08053000-0816e000 rwxp 08053000 00:00 0          [heap]
+908ee000-90982000 r-xp 00000000 08:02 7987272    /home/xibyte/workspace.i/sqlitewrapper/native/libsqlitewrapper.so
+90982000-90983000 r-xp 00093000 08:02 7987272    /home/xibyte/workspace.i/sqlitewrapper/native/libsqlitewrapper.so
+90983000-90984000 rwxp 00094000 08:02 7987272    /home/xibyte/workspace.i/sqlitewrapper/native/libsqlitewrapper.so
+90984000-90985000 rwxp 90984000 00:00 0 
+90985000-90986000 ---p 90985000 00:00 0 
+90986000-90a06000 rwxp 90986000 00:00 0 
+90a06000-90a09000 ---p 90a06000 00:00 0 
+90a09000-90a57000 rwxp 90a09000 00:00 0 
+90a57000-90a5a000 ---p 90a57000 00:00 0 
+90a5a000-90ad8000 rwxp 90a5a000 00:00 0 
+90ad8000-90adb000 ---p 90ad8000 00:00 0 
+90adb000-90b59000 rwxp 90adb000 00:00 0 
+90b59000-90b5c000 ---p 90b59000 00:00 0 
+90b5c000-90baa000 rwxp 90b5c000 00:00 0 
+90baa000-90bb1000 r-xs 00000000 08:04 1147880    /usr/lib/gconv/gconv-modules.cache
+90bb1000-90bf0000 r-xp 00000000 08:04 1163759    /usr/lib/locale/ru_RU.utf8/LC_CTYPE
+90bf0000-90bf3000 ---p 90bf0000 00:00 0 
+90bf3000-90c41000 rwxp 90bf3000 00:00 0 
+90c41000-90c44000 ---p 90c41000 00:00 0 
+90c44000-90c92000 rwxp 90c44000 00:00 0 
+90c92000-90c93000 ---p 90c92000 00:00 0 
+90c93000-90d43000 rwxp 90c93000 00:00 0 
+90d43000-90ebf000 r-xs 02c8f000 08:04 1787621    /usr/java/jdk1.6.0_03/jre/lib/rt.jar
+90ebf000-90ec0000 ---p 90ebf000 00:00 0 
+90ec0000-90f40000 rwxp 90ec0000 00:00 0 
+90f40000-90f41000 ---p 90f40000 00:00 0 
+90f41000-90fc9000 rwxp 90f41000 00:00 0 
+90fc9000-90fe1000 rwxp 90fc9000 00:00 0 
+90fe1000-90ff0000 rwxp 90fe1000 00:00 0 
+90ff0000-910c2000 rwxp 90ff0000 00:00 0 
+910c2000-910ca000 rwxp 910c2000 00:00 0 
+910ca000-910e2000 rwxp 910ca000 00:00 0 
+910e2000-910f1000 rwxp 910e2000 00:00 0 
+910f1000-911c2000 rwxp 910f1000 00:00 0 
+911c2000-911c5000 rwxp 911c2000 00:00 0 
+911c5000-911df000 rwxp 911c5000 00:00 0 
+911df000-921e0000 rwxp 911df000 00:00 0 
+921e0000-951e0000 rwxp 921e0000 00:00 0 
+951e0000-96df0000 rwxp 951e0000 00:00 0 
+96df0000-b13b0000 rwxp 96df0000 00:00 0 
+b13b0000-b17b0000 rwxp b13b0000 00:00 0 
+b17b0000-b4be0000 rwxp b17b0000 00:00 0 
+b4be0000-b4be9000 rwxp b4be0000 00:00 0 
+b4be9000-b4ca0000 rwxp b4be9000 00:00 0 
+b4ca0000-b4ee0000 rwxp b4ca0000 00:00 0 
+b4ee0000-b7ca0000 rwxp b4ee0000 00:00 0 
+b7ca0000-b7caf000 r-xp 00000000 08:04 1786617    /usr/java/jdk1.6.0_03/jre/lib/i386/libzip.so
+b7caf000-b7cb1000 rwxp 0000e000 08:04 1786617    /usr/java/jdk1.6.0_03/jre/lib/i386/libzip.so
+b7cb1000-b7cd4000 r-xp 00000000 08:04 1786594    /usr/java/jdk1.6.0_03/jre/lib/i386/libjava.so
+b7cd4000-b7cd6000 rwxp 00023000 08:04 1786594    /usr/java/jdk1.6.0_03/jre/lib/i386/libjava.so
+b7cd6000-b7cdf000 r-xp 00000000 08:04 1164881    /lib/libnss_files-2.8.so
+b7cdf000-b7ce0000 r-xp 00008000 08:04 1164881    /lib/libnss_files-2.8.so
+b7ce0000-b7ce1000 rwxp 00009000 08:04 1164881    /lib/libnss_files-2.8.so
+b7ce1000-b7ce9000 r-xp 00000000 08:04 1164868    /lib/libnss_nis-2.8.so
+b7ce9000-b7cea000 r-xp 00007000 08:04 1164868    /lib/libnss_nis-2.8.so
+b7cea000-b7ceb000 rwxp 00008000 08:04 1164868    /lib/libnss_nis-2.8.so
+b7ceb000-b7cfe000 r-xp 00000000 08:04 1163389    /lib/libnsl-2.8.so
+b7cfe000-b7cff000 r-xp 00012000 08:04 1163389    /lib/libnsl-2.8.so
+b7cff000-b7d00000 rwxp 00013000 08:04 1163389    /lib/libnsl-2.8.so
+b7d00000-b7d02000 rwxp b7d00000 00:00 0 
+b7d05000-b7d10000 r-xp 00000000 08:04 1786616    /usr/java/jdk1.6.0_03/jre/lib/i386/libverify.so
+b7d10000-b7d11000 rwxp 0000b000 08:04 1786616    /usr/java/jdk1.6.0_03/jre/lib/i386/libverify.so
+b7d11000-b7d19000 rwxs 00000000 08:04 262146     /tmp/hsperfdata_xibyte/24433
+b7d19000-b7d20000 r-xp 00000000 08:04 1164836    /lib/librt-2.8.so
+b7d20000-b7d21000 r-xp 00006000 08:04 1164836    /lib/librt-2.8.so
+b7d21000-b7d22000 rwxp 00007000 08:04 1164836    /lib/librt-2.8.so
+b7d22000-b7d25000 ---p b7d22000 00:00 0 
+b7d25000-b7d73000 rwxp b7d25000 00:00 0 
+b7d73000-b7d97000 r-xp 00000000 08:04 1164880    /lib/libm-2.8.so
+b7d97000-b7d98000 r-xp 00023000 08:04 1164880    /lib/libm-2.8.so
+b7d98000-b7d99000 rwxp 00024000 08:04 1164880    /lib/libm-2.8.so
+b7d99000-b7d9b000 rwxp b7d99000 00:00 0 
+b7d9b000-b7ed8000 r-xp 00000000 08:04 1164870    /lib/libc-2.8.so
+b7ed8000-b7eda000 r-xp 0013d000 08:04 1164870    /lib/libc-2.8.so
+b7eda000-b7edb000 rwxp 0013f000 08:04 1164870    /lib/libc-2.8.so
+b7edb000-b7ede000 rwxp b7edb000 00:00 0 
+b7ede000-b7ee0000 r-xp 00000000 08:04 1164875    /lib/libdl-2.8.so
+b7ee0000-b7ee1000 r-xp 00001000 08:04 1164875    /lib/libdl-2.8.so
+b7ee1000-b7ee2000 rwxp 00002000 08:04 1164875    /lib/libdl-2.8.so
+b7ee2000-b7ee9000 r-xp 00000000 08:04 1786577    /usr/java/jdk1.6.0_03/jre/lib/i386/jli/libjli.so
+b7ee9000-b7eeb000 rwxp 00006000 08:04 1786577    /usr/java/jdk1.6.0_03/jre/lib/i386/jli/libjli.so
+b7eeb000-b7eff000 r-xp 00000000 08:04 1163317    /lib/libpthread-2.8.so
+b7eff000-b7f00000 r-xp 00013000 08:04 1163317    /lib/libpthread-2.8.so
+b7f00000-b7f01000 rwxp 00014000 08:04 1163317    /lib/libpthread-2.8.so
+b7f01000-b7f03000 rwxp b7f01000 00:00 0 
+b7f08000-b7f0f000 r-xp 00000000 08:04 1164840    /lib/libnss_compat-2.8.so
+b7f0f000-b7f10000 r-xp 00006000 08:04 1164840    /lib/libnss_compat-2.8.so
+b7f10000-b7f11000 rwxp 00007000 08:04 1164840    /lib/libnss_compat-2.8.so
+b7f11000-b7f17000 r-xp 00000000 08:04 1786621    /usr/java/jdk1.6.0_03/jre/lib/i386/native_threads/libhpi.so
+b7f17000-b7f18000 rwxp 00006000 08:04 1786621    /usr/java/jdk1.6.0_03/jre/lib/i386/native_threads/libhpi.so
+b7f18000-b7f19000 rwxp b7f18000 00:00 0 
+b7f19000-b7f1a000 r-xp b7f19000 00:00 0 
+b7f1a000-b7f1b000 rwxp b7f1a000 00:00 0 
+b7f1b000-b7f36000 r-xp 00000000 08:04 1164934    /lib/ld-2.8.so
+b7f36000-b7f37000 r-xp 0001a000 08:04 1164934    /lib/ld-2.8.so
+b7f37000-b7f38000 rwxp 0001b000 08:04 1164934    /lib/ld-2.8.so
+bfb22000-bfb37000 rwxp bffeb000 00:00 0          [stack]
+ffffe000-fffff000 r-xp 00000000 00:00 0          [vdso]
+
+VM Arguments:
+jvm_args: -Djava.library.path=/home/xibyte/workspace.i/sqlitewrapper/native -Dfile.encoding=UTF-8
+java_command: sqlitewrapper.test.BlobTest
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/jre
+JRE_HOME=/usr/lib/jvm/jre
+PATH=/home/xibyte/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/kde3/bin:/usr/lib/jvm/jre/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/usr/lib/qt3/bin
+USERNAME=xibyte
+LD_LIBRARY_PATH=/usr/java/jdk1.6.0_03/jre/lib/i386/server:/usr/java/jdk1.6.0_03/jre/lib/i386:/usr/java/jdk1.6.0_03/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0.0
+HOSTTYPE=i386
+OSTYPE=linux
+MACHTYPE=i686-suse-linux
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x53c560], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x53c560], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x451a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x451a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x451a50], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x453a80], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x4534a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: [libjvm.so+0x4534a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x4534a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR2: [libjvm.so+0x453a80], sa_mask[0]=0x00000004, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:openSUSE 11.0 (i586)
+VERSION = 11.0
+
+uname:Linux 2.6.25.5-1.1-pae #1 SMP 2008-06-07 01:55:22 +0200 i686
+libc:glibc 2.8 NPTL 2.8 
+rlimit: STACK 8192k, CORE 0k, NPROC 16309, NOFILE 8192, AS 3252640k
+load average:0.23 0.19 0.09
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 7 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2065704k(407992k free), swap 2000084k(1048632k free)
+
+vm_info: Java HotSpot(TM) Server VM (1.6.0_03-b05) for linux-x86, built on Sep 24 2007 22:32:39 by "java_re" with gcc 3.2.1-7a (J2SE release)
+

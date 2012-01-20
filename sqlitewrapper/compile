@@ -1,0 +1,14 @@
+cd native
+
+gcc -DSQLITE_ENABLE_RTREE=1 -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION \
+-o libsqlitewrapper.so -shared -Wl,-soname,libsqlitewrapper.so \
+-I/usr/java/jdk1.6.0_03/include  \
+-I/usr/java/jdk1.6.0_03/include/linux  \
+sqlite3.c \
+sqlitewrapper.c \
+-static
+
+
+
+
+
